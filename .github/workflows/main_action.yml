@@ -1,0 +1,15 @@
+name: Sync Fork
+on:
+  push: 
+  schedule:
+    - cron: '0 0 1 * * ?'
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tgymnich/fork-sync@v1.8
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          owner: NateScarlet 
+          head: master 
+          base: master
